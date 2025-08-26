@@ -30,6 +30,12 @@ target_include_directories(static-matrixlib
     "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
 )
 
+target_compile_definitions(
+    static-matrixlib
+    PUBLIC
+        MATH_STATIC_DEFINE
+)
+
 set_target_properties(static-matrixlib PROPERTIES PREFIX "")
 
 generate_export_header(
@@ -45,6 +51,11 @@ target_include_directories(shared-matrixlib
     "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}>"
     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>"
     "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
+)
+
+target_compile_definitions(
+    shared-matrixlib
+    PUBLIC
 )
 
 set_target_properties(shared-matrixlib PROPERTIES PREFIX "")
